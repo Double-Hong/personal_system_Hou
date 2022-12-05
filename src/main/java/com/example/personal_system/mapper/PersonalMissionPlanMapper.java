@@ -3,6 +3,9 @@ package com.example.personal_system.mapper;
 import com.example.personal_system.entity.PersonalMissionPlanEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -15,4 +18,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PersonalMissionPlanMapper extends BaseMapper<PersonalMissionPlanEntity> {
 
+    @Select("select * from personal_mission_plan")
+    List<PersonalMissionPlanEntity> getAllMisson();
 }

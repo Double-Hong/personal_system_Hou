@@ -6,8 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -20,11 +20,11 @@ import lombok.experimental.Accessors;
  * @author Double-Hong
  * @since 2022-11-22 09:26:34
  */
+@Data
 @Getter
 @Setter
 @Accessors(chain = true)
 @TableName("memo_of_schedule")
-@ApiModel(value = "MemoOfScheduleEntity对象", description = "")
 public class MemoOfScheduleEntity {
 
     @TableId(value = "id", type = IdType.AUTO)

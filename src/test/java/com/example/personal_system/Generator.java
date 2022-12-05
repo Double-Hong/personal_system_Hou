@@ -1,5 +1,6 @@
-package com.example.personal_system; /**
- * @author :Yaxin-Wang
+package com.example.personal_system;
+/**
+ * @author :Double-Hong
  * @date : 2022/11/21
  */
 import com.baomidou.mybatisplus.annotation.FieldFill;
@@ -59,7 +60,7 @@ public class Generator {
                         .fileOverride()     // 覆盖已生成文件
                         .disableOpenDir()   // 不打开生成文件目录
                         .outputDir(projectPath + "/src/main/java") // 指定输出目录,注意斜杠的表示
-                        .author("YehWang") // 设置注释的作者
+                        .author("Double-Hong") // 设置注释的作者
                         .commentDate("yyyy-MM-dd HH:mm:ss") // 设置注释的日期格式
                         .dateType(DateType.TIME_PACK)   // 使用java8新的时间类型
                         .enableSwagger()    // 开启swagger文档
