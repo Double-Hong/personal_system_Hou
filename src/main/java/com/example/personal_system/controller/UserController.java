@@ -36,15 +36,12 @@ public class UserController {
 
     @GetMapping("/getPassword/{name}")
     public List<UserEntity> getPassword(@PathVariable String name) {
-        System.out.println(name);
         return userService.getPassword(name, "");
     }
 
     @PostMapping("/checkUser")
     public String checkUser(@RequestBody UserEntity user) {
-        System.out.println(user.getUserName() + "+" + user.getPassword());
         List<UserEntity> userEntities = userService.getPassword(user.getUserName(), user.getPassword());
-        System.out.println(userEntities.size());
         if (userEntities.size() != 0) {
             System.out.println(userEntities.get(0).getUserName());
         } else {
@@ -71,7 +68,6 @@ public class UserController {
     }
     @PostMapping("/updateUserInfo")
     public Integer updateUserInfo(@RequestBody UserEntity user){
-        System.out.println(user);
         return userService.updateUserInfo(user);
     }
 }

@@ -30,11 +30,21 @@ public class AddressBookEntity {
     @TableField("user_name")
     private String userName;
 
-    @TableField("l_username")
-    private String lUsername;
+    @TableField("contact_person_name")
+    private String contactPersonName;
 
     @TableField("relation")
     private String relation;
 
+    @TableField("email")
+    private String email;
 
+    @TableField("phone")
+    private String phone;
+
+    @TableField("qq")
+    private String qq;
+
+    @TableField("remark")
+    private String remark;
 }
