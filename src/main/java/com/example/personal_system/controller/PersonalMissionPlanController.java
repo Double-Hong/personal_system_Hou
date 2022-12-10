@@ -60,8 +60,7 @@ public class PersonalMissionPlanController {
     @GetMapping("/findMission/{search},{username}")
     public List<PersonalMissionPlanEntity> findMission(@PathVariable String search, @PathVariable String username){
         return personalMissionPlanMapper.selectList
-                (new QueryWrapper<PersonalMissionPlanEntity>().like("my_event_name",search).
-                        or().like("event_describe",search).eq("user_name",username));
+                (new QueryWrapper<PersonalMissionPlanEntity>().eq("user_name",username).and(i ->i.like("my_event_name",search).or().like("event_describe",search)));
     }
 
 }
