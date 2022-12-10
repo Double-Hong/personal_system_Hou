@@ -48,8 +48,8 @@ public class AddressBookController {
         return addressBookMapper.deleteById(id);
     }
 
-    @GetMapping("/findPeopleByName/{name}")
-    public List<AddressBookEntity> findPeopleByName(@PathVariable String name){
-        return addressBookMapper.selectList(new QueryWrapper<AddressBookEntity>().like("contact_person_name",name));
+    @GetMapping("/findPeopleByName/{name},{username}")
+    public List<AddressBookEntity> findPeopleByName(@PathVariable String name, @PathVariable String username){
+        return addressBookMapper.selectList(new QueryWrapper<AddressBookEntity>().like("contact_person_name",name).eq("user_name",username));
     }
 }

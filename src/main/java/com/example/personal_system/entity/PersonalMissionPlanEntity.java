@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.time.LocalDateTime;
+
 /**
  * <p>
  * 
@@ -30,8 +32,14 @@ public class PersonalMissionPlanEntity {
     @TableField("user_name")
     private String userName;
 
-    @TableField("my_event")
-    private String myEvent;
+    @TableField("my_event_name")
+    private String myEventName;
+
+    @TableField("event_describe")
+    private String eventDescribe;
+
+    @TableField("end_time")
+    private String endTime;
 
     @TableField("completion_status")
     private Boolean completionStatus;

@@ -50,8 +50,10 @@ class PersonalSystemApplicationTests {
 //        System.out.println(id+" "+id.length());
 //        List<AddressBookEntity> list = addressBookMapper.selectList(null);
 //        list.forEach(System.out::println);
-        List<AddressBookEntity> list =addressBookMapper.selectList(
-                new QueryWrapper<AddressBookEntity>().eq("user_name","001"));
+//        List<AddressBookEntity> list =addressBookMapper.selectList(
+//                new QueryWrapper<AddressBookEntity>().eq("user_name","001"));
+//        list.forEach(System.out::println);
+        List<PersonalMissionPlanEntity> list=personalMissionPlanMapper.selectList(null);
         list.forEach(System.out::println);
     }
 }
