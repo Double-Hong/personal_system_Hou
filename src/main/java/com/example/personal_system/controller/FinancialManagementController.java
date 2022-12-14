@@ -11,7 +11,7 @@ import java.util.UUID;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author Double-Hong
@@ -25,22 +25,21 @@ public class FinancialManagementController {
     FinancialManagementMapper financialManagementMapper;
 
     @GetMapping("/getTotalMoney/{type},{username},{status}")
-    public Double getTotalMoney(@PathVariable String type, @PathVariable String username, @PathVariable Boolean status){
-        if (financialManagementMapper.totalMoney(type,username,status)==null){
+    public Double getTotalMoney(@PathVariable String type, @PathVariable String username, @PathVariable Boolean status) {
+        if (financialManagementMapper.totalMoney(type, username, status) == null) {
             return (double) 0;
-        }
-        else {
-            return financialManagementMapper.totalMoney(type,username,status);
+        } else {
+            return financialManagementMapper.totalMoney(type, username, status);
         }
     }
 
     @GetMapping("/getBillByUsername/{username}")
-    public List<FinancialManagementEntity> getBillByUsername(@PathVariable String username){
-        return financialManagementMapper.selectList(new QueryWrapper<FinancialManagementEntity>().eq("user_name",username));
+    public List<FinancialManagementEntity> getBillByUsername(@PathVariable String username) {
+        return financialManagementMapper.selectList(new QueryWrapper<FinancialManagementEntity>().eq("user_name", username).orderByDesc("my_time"));
     }
 
     @PostMapping("/insertBill")
-    public Integer insertBill(@RequestBody FinancialManagementEntity financialManagement){
+    public Integer insertBill(@RequestBody FinancialManagementEntity financialManagement) {
         UUID uuid = UUID.randomUUID();
         String id = uuid.toString();
         financialManagement.setId(id);
@@ -48,12 +47,12 @@ public class FinancialManagementController {
     }
 
     @PostMapping("/updateBill")
-    public Integer updateBill(@RequestBody FinancialManagementEntity financialManagement){
+    public Integer updateBill(@RequestBody FinancialManagementEntity financialManagement) {
         return financialManagementMapper.updateById(financialManagement);
     }
 
     @GetMapping("/deleteBill/{id}")
-    public Integer deleteBill(@PathVariable String id){
+    public Integer deleteBill(@PathVariable String id) {
         return financialManagementMapper.deleteById(id);
     }
 }

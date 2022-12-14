@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author Double-Hong
@@ -26,7 +26,7 @@ public interface UserMapper extends BaseMapper<UserEntity> {
 
     //用户名和密码
     @Select(("select user_name,password from user where user_name = #{name} and password = #{password}"))
-    List<UserEntity> getPassword(String name,String password);
+    List<UserEntity> getPassword(String name, String password);
 
     @Select("select * from user where user_name = #{userName}")
     List<UserEntity> getUser(String userName);

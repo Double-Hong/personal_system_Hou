@@ -43,15 +43,15 @@ public class MemoOfScheduleController {
     }
 
     @GetMapping("/deleteById/{id}")
-    public Integer deleteById(@PathVariable String id){
+    public Integer deleteById(@PathVariable String id) {
         return memoOfScheduleMapper.deleteById(id);
     }
 
     @GetMapping("/findSchedule/{username},{search}")
-    public List<MemoOfScheduleEntity> findSchedule(@PathVariable String username,@PathVariable String search){
+    public List<MemoOfScheduleEntity> findSchedule(@PathVariable String username, @PathVariable String search) {
         System.out.println(username);
         System.out.println(search);
 
-        return memoOfScheduleMapper.selectList(new QueryWrapper<MemoOfScheduleEntity>().eq("user_name",username).and(i->i.like("my_event",search)));
+        return memoOfScheduleMapper.selectList(new QueryWrapper<MemoOfScheduleEntity>().eq("user_name", username).and(i -> i.like("my_event", search)));
     }
 }

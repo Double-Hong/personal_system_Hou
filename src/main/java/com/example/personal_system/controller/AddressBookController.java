@@ -32,24 +32,25 @@ public class AddressBookController {
     }
 
     @PostMapping("/updateById")
-    public Integer updateById(@RequestBody AddressBookEntity addressBook){
+    public Integer updateById(@RequestBody AddressBookEntity addressBook) {
         return addressBookMapper.updateById(addressBook);
     }
 
     @PostMapping("/insertBook")
-    public Integer insertBook(@RequestBody AddressBookEntity addressBook){
+    public Integer insertBook(@RequestBody AddressBookEntity addressBook) {
         UUID uuid = UUID.randomUUID();
         String id = uuid.toString();
         addressBook.setId(id);
         return addressBookMapper.insert(addressBook);
     }
+
     @GetMapping("/deleteById/{id}")
-    public Integer deleteById(@PathVariable String id){
+    public Integer deleteById(@PathVariable String id) {
         return addressBookMapper.deleteById(id);
     }
 
     @GetMapping("/findPeopleByName/{name},{username}")
-    public List<AddressBookEntity> findPeopleByName(@PathVariable String name, @PathVariable String username){
-        return addressBookMapper.selectList(new QueryWrapper<AddressBookEntity>().like("contact_person_name",name).eq("user_name",username));
+    public List<AddressBookEntity> findPeopleByName(@PathVariable String name, @PathVariable String username) {
+        return addressBookMapper.selectList(new QueryWrapper<AddressBookEntity>().like("contact_person_name", name).eq("user_name", username));
     }
 }
