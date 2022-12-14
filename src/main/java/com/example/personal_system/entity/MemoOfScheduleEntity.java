@@ -51,5 +51,6 @@ public class MemoOfScheduleEntity {
     @TableField("event_date")
     private LocalDate eventDate;
 
-
+    @TableField("event_describe")
+    private String eventDescribe;
 }

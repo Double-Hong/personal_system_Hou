@@ -33,17 +33,20 @@ public class FinancialManagementEntity {
     @TableField("user_name")
     private String userName;
 
-    @TableField("income")
-    private BigDecimal income;
-
-    @TableField("outcome")
-    private BigDecimal outcome;
-
     @TableField("my_time")
-    private LocalDateTime myTime;
+    private String myTime;
 
     @TableField("my_event")
     private String myEvent;
+
+    @TableField("consume_type")
+    private String consumeType;
+
+    @TableField("consume_money")
+    private Double consumeMoney;
+
+    @TableField("consume_status")
+    private Boolean consumeStatus;
 
 
 }

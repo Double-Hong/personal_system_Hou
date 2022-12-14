@@ -40,27 +40,27 @@ public class PersonalMissionPlanController {
     }
 
     @GetMapping("/deleteMissionById/{id}")
-    public Integer deleteMissionById(@PathVariable String id){
+    public Integer deleteMissionById(@PathVariable String id) {
         return personalMissionPlanMapper.deleteById(id);
     }
 
     @PostMapping("/insertMission")
-    public Integer insertMission(@RequestBody PersonalMissionPlanEntity personalMissionPlanEntity){
-        System.out.println(personalMissionPlanEntity+"hhhhh");
+    public Integer insertMission(@RequestBody PersonalMissionPlanEntity personalMissionPlanEntity) {
         UUID uuid = UUID.randomUUID();
         String id = uuid.toString();
         personalMissionPlanEntity.setId(id);
         return personalMissionPlanMapper.insert(personalMissionPlanEntity);
     }
+
     @PostMapping("/updateById")
-    public Integer updateById(@RequestBody PersonalMissionPlanEntity personalMissionPlanEntity){
+    public Integer updateById(@RequestBody PersonalMissionPlanEntity personalMissionPlanEntity) {
         return personalMissionPlanMapper.updateById(personalMissionPlanEntity);
     }
 
     @GetMapping("/findMission/{search},{username}")
-    public List<PersonalMissionPlanEntity> findMission(@PathVariable String search, @PathVariable String username){
+    public List<PersonalMissionPlanEntity> findMission(@PathVariable String search, @PathVariable String username) {
         return personalMissionPlanMapper.selectList
-                (new QueryWrapper<PersonalMissionPlanEntity>().eq("user_name",username).and(i ->i.like("my_event_name",search).or().like("event_describe",search)));
+                (new QueryWrapper<PersonalMissionPlanEntity>().eq("user_name", username).and(i -> i.like("my_event_name", search).or().like("event_describe", search)));
     }
 
 }

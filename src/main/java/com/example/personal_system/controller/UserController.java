@@ -66,8 +66,11 @@ public class UserController {
     public List<UserEntity> getUser(@RequestBody UserEntity user) {
         return userService.getUser(user.getUserName());
     }
+
     @PostMapping("/updateUserInfo")
-    public Integer updateUserInfo(@RequestBody UserEntity user){
+    public Integer updateUserInfo(@RequestBody UserEntity user) {
         return userService.updateUserInfo(user);
     }
+
+
 }
